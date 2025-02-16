@@ -29,7 +29,7 @@ FROM `keepcoding.ivr_detail`
 )
 SELECT 
   calls_ivr_id,
-  calls_phone_number,
+  -- calls_phone_number,
   -- calls_start_date,
   -- Flag que indica si calls_phone_number tiene una llamada las anteriores 24 horas
   MAX(
