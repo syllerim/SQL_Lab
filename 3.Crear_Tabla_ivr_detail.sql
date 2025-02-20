@@ -26,8 +26,8 @@ SELECT
   ivs.customer_phone AS customer_phone,
   ivs.billing_account_id AS billing_account_id
 FROM `keepcoding.ivr_calls` AS ivc
-INNER JOIN `keepcoding.ivr_modules` AS ivm
+LEFT JOIN `keepcoding.ivr_modules` AS ivm
   ON ivc.ivr_id = ivm.ivr_id
-INNER JOIN `keepcoding.ivr_steps` AS ivs
+LEFT JOIN `keepcoding.ivr_steps` AS ivs
   ON ivm.ivr_id = ivs.ivr_id
   AND ivm.module_sequece = ivs.module_sequece;
