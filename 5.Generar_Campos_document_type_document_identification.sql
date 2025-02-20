@@ -1,8 +1,8 @@
 
 SELECT
   ivd.calls_ivr_id,
-  ivd.document_type,
-  ivd.document_identification
+  NULLIF(ivd.document_type, 'UNKNOWN') AS document_type,
+  NULLIF(ivd.document_identification, 'UNKNOWN') AS document_identification
 FROM `keepcoding.ivr_detail` AS ivd
 QUALIFY ROW_NUMBER()
   OVER(
