@@ -1,6 +1,6 @@
 SELECT
   ivd.calls_ivr_id,
-  ivd.billing_account_id,
+  NULLIF(ivd.billing_account_id, 'UNKNOWN') AS billing_account_id,
 FROM `keepcoding.ivr_detail` AS ivd
 QUALIFY ROW_NUMBER()
   OVER(
