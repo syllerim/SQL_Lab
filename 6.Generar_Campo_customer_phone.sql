@@ -1,6 +1,6 @@
 SELECT
   ivd.calls_ivr_id,
-  ivd.calls_phone_number AS customer_phone,
+  NULLIF(ivd.calls_phone_number, 'UNKNOWN') AS customer_phone,
 FROM `keepcoding.ivr_detail` AS ivd
 QUALIFY ROW_NUMBER()
   OVER(
